@@ -1,5 +1,5 @@
-import userEvent from "@testing-library/user-event";
 import {useState, useEffect} from "react";
+import Movie from "./components/Movie";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -23,11 +23,24 @@ function App() {
   },[])
   console.log(movies);
 
-    
-  
+
   return (
     <div>
-      {loading?<h1>Loading...</h1>:null}
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <div>
+          {movies.map((movie) =>(
+            <Movie 
+              key={movie.id}
+              title = {movie.title}
+              summary = {movie.summary}
+              coverImg = {movie.medium_cover_image}
+              genres ={movie.genres}
+              />
+            ))}
+        </div>
+        )}
     </div>
   );
 }
