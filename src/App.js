@@ -10,7 +10,7 @@ function App() {
   return <Router>
     <Switch>
 
-      <Route path="/movie">
+      <Route path="/movie/:movieId">
         <Detail />
       </Route>
 
